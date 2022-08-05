@@ -32,6 +32,11 @@ def create_files(name="main.py"):
     for file in files:
         open(os.path.join(PATH_DIRECTORY,file), "w")
 
+    files = ["Readme.md"]
+    
+    for file in files:
+        open(file, "w")
+    
 
 def create_src_folder():
     try:
