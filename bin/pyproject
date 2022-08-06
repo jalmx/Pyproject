@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+import os,sys
+from datetime import datetime
+from sys import argv,exit
+DIRECTORY='src'
+PATH_DIRECTORY=os.path.join('./',DIRECTORY)
+HELP="\nUSAGE:\n    pyproject [name_project]\n    \n    example:\n        pyproject my_project\n\n    If you don't pass an argument for the default the main file will be `main.py`\n    \n    https://github.com/jalmx/Pyproject\n"
+def exec_cmd():
+	A=['ignore python',f'license-generator install mit -e md -y {datetime.now().year} -n "Xizuth"']
+	for B in A:os.system(B)
+def create_files(name='main.py'):
+	A=[name,'__init__.py','__main__.py']
+	for B in A:open(os.path.join(PATH_DIRECTORY,B),'w')
+	A=['Readme.md']
+	for B in A:open(B,'w')
+def create_src_folder():
+	try:os.mkdir(PATH_DIRECTORY);return True
+	except:return False
+def pyproject(name):A=name;create_src_folder();A=A.replace('.py','');create_files(f"{A}.py");exec_cmd()
+def cli():
+	if len(argv)<2:print(HELP);exit(1)
+	A=argv[1]
+	if A=='--help':print(HELP);exit(0)
+	try:pyproject(A)
+	except Exception as B:print(B);print(HELP);exit(1)
+	exit(0)
+def main():cli()
+if __name__=='__main__':main()
