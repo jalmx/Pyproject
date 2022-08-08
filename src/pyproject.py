@@ -28,7 +28,6 @@ USAGE:
     example:
         pyproject my_project
 
-    If you don't pass an argument for the default the main file will be `main.py`
     
     https://github.com/jalmx/Pyproject
 """
